@@ -198,28 +198,28 @@
 			.symbol-1{
 				top:40%;
 				left:2%;
-				background-image: url("img/map/03kirha2.png");
+				background-image: url("https://ancient-brushlands-72950.herokuapp.com/img/map/03kirha2.png");
 			}
 			.symbol-2{
 				top:86%;
 				left:42%;
-				background-image: url("img/map/07pine.png");
+				background-image: url("https://ancient-brushlands-72950.herokuapp.com/img/map/07pine.png");
 			}
 			.symbol-3{
 				top:25%;
 				left:82%;
-				background-image: url("img/map/10pustyr.png");
+				background-image: url("https://ancient-brushlands-72950.herokuapp.com/img/map/10pustyr.png");
 			}
 			.symbol-4{
 				top:2%;
 				left:50%;
-				background-image: url("img/map/11ferry.png");
+				background-image: url("https://ancient-brushlands-72950.herokuapp.com/img/map/11ferry.png");
 			}
 			.image-1{
 				top:55%;
 				left:18%;
 				clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 99%, 0% 66%, 24% 66%, 23% 35%, 49% 35%);
-				background-image: url("img/eltsin-1B.jpg");
+				background-image: url("https://ancient-brushlands-72950.herokuapp.com/img/eltsin-1B.jpg");
 			}
 			/*.image-2{
 				top:70%;
@@ -232,7 +232,7 @@
 				left:auto;
 				right:-5%;
 				clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 67% 41%, 67% 99%, 0 100%);
-				background-image: url("img/office.jpg");
+				background-image: url("https://ancient-brushlands-72950.herokuapp.com/img/office.jpg");
 			}
 			/*.image-4{
 				top:5%;
