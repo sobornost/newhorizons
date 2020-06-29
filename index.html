@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+   		<title>Новые горизонты — 2020</title>
+   		<link rel="stylesheet" type="text/css" href="fonts/fontface.css">
+		<style type="text/css">
+			/*layout grid*/
+			body {
+				height:100%;
+				width:100%;
+				margin:0;
+				padding:0;
+				overflow:hidden;
+			}
+			.container {
+				display: flex;
+				flex-direction:row;
+				flex-wrap:wrap;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				justify-content: center;
+				align-items: center;
+			}
+			.wrapper-left {
+				flex:1;
+				overflow:hidden;
+				width:100%;
+				height:100%;
+			}
+			.wrapper-right {
+				flex:1;
+				overflow-y:hidden;
+				width:100%;
+				height:100%;
+			}
+			.title-container {
+				position: relative;
+				z-index:100;
+			}
+			.image-container{
+				position:relative;
+				width:100%;
+				height:100vh;
+				max-height:100vh;
+/*				display:grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr 1fr;*/
+			}
+			.board-wrapper{
+				margin:auto;
+				position:relative;
+				height:100%;
+				overflow-y:auto;
+				margin:25px 50px 25px 40px;
+			}
+			.text-full{
+				height:100%;
+				position:absolute;
+    			z-index:102;
+			}
+
+			/*responsive layout from horizontal to vertical*/
+			@media screen 
+  				and (min-width: 0px) 
+ 				and (max-width: 800px) {
+					.container{
+						flex-direction:column;
+					}
+					.image-container{
+						width:100%;
+						display:grid;
+						grid-template-columns: 1fr 1fr;
+						grid-template-rows: 1fr 1fr 1fr;
+					}
+			}
+
+			/*header*/
+			.title-top{
+				position: absolute;
+  				top: 1em;
+  				left: 50%;
+  				transform: translate(-50%, -50%);
+				text-align: center;
+			}
+			.text-indent-container{
+				position:relative;
+			}
+
+			.text-indent{
+				position:absolute;
+				left:-1.9em;
+				top:1em;
+			}
+
+			.text-no-indent{
+				position:absolute;
+				left:0;
+				top:1em;
+			}
+			
+			.title-date{
+				position: absolute;
+  				top: 5em;
+  				left: auto;
+  				right: 3em;
+				text-align: center;
+			}
+
+			/*text "summer school"*/
+			.subtitle-top {
+				position: absolute;
+				top:4em;
+				left:5%;
+  				text-align:left;
+			}
+
+			.subtitle-top-2 {
+				position: absolute;
+				top:49vh;
+				right:65%;
+  				text-align:center;
+			}
+
+			/*image links in the text in the left block*/
+			.hover-link{
+				position: relative;
+				display:inline-block;
+				cursor:pointer;
+			}
+
+			/*svg graphics*/
+			.svg-container{
+				position:relative;
+				/*z-index: 99;*/
+				max-width:100%;
+				max-height:100%;/*
+				overflow: hidden;*/
+			}
+			svg.lines{
+				/*margin:0;
+				left:0;
+				top:0;*/
+				position:absolute;
+				width:100%;
+				height:100vh;
+				/*height:100vh;
+				width:100vw;*/
+				/*overflow:hidden;*/
+			}
+			.horizon-line{
+				color:rgb(51,51,255);
+				stroke-width:2;
+				fill:none;
+			}
+
+			/*placed images*/
+			.image-place{
+				position:absolute;
+				top:0;
+				left:0;
+				background-size: cover;
+			}
+			.symbol{
+				background-size: 50%;
+				background-repeat:no-repeat;
+				z-index:101;
+			}
+			.image-vertical{
+				width:150px;
+				height:260px;
+			}
+
+			.image-horizontal{
+				width:260px;
+				height:150px;
+			}
+			
+			/*image styling*/
+			.image-blue{
+				filter: invert(17%) sepia(93%) saturate(5194%) hue-rotate(243deg) brightness(98%) contrast(106%);
+			}
+
+			/*show animation*/
+			.image-place.show{
+				visibility: visible;
+				-webkit-animation: fadeIn 0.5s;
+				animation: fadeIn 0.5s;
+				/*transition: opacity 0.4s ease-out;*/
+			}
+			@-webkit-keyframes fadeIn {
+  				from {opacity: 0;}
+  				to {opacity: 1;}
+			}
+
+			@keyframes fadeIn {
+				from {opacity: 0;}
+			  	to {opacity:1 ;}
+			}
+
+			/*placed image parameters*/
+			.symbol-1{
+				top:40%;
+				left:2%;
+				background-image: url("img/map/03kirha2.png");
+			}
+			.symbol-2{
+				top:86%;
+				left:42%;
+				background-image: url("img/map/07pine.png");
+			}
+			.symbol-3{
+				top:25%;
+				left:82%;
+				background-image: url("img/map/10pustyr.png");
+			}
+			.symbol-4{
+				top:2%;
+				left:50%;
+				background-image: url("img/map/11ferry.png");
+			}
+			.image-1{
+				top:55%;
+				left:18%;
+				clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 99%, 0% 66%, 24% 66%, 23% 35%, 49% 35%);
+				background-image: url("img/eltsin-1B.jpg");
+			}
+			/*.image-2{
+				top:70%;
+				left:90%;
+				clip-path: polygon(23% 20%, 0 20%, 0 0, 53% 0, 53% 38%, 100% 38%, 100% 85%, 100% 100%, 23% 100%);
+				background-image: url("img/kant2.jpg");
+			}*/
+			.image-3{
+				top:5em;
+				left:auto;
+				right:-5%;
+				clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 67% 41%, 67% 99%, 0 100%);
+				background-image: url("img/office.jpg");
+			}
+			/*.image-4{
+				top:5%;
+				left:63%;
+				background-image: url("img/car.jpg");
+			}*/
+			/*.image-5{
+				top:51%;
+				left:32%;
+				clip-path: polygon(20% 63%, 20% 0, 70% 0, 70% 100%, 0 100%, 0 63%);
+				background-image: url("img/rings.jpg");
+			}*/
+			/*.image-6{
+				top:15%;
+				left:90%;
+				clip-path: polygon(20% 63%, 20% 0, 70% 0, 70% 100%, 0 100%, 0 63%);
+				background-image: url("img/mashina.jpg");
+			}*/
+			/*.image-7{
+				top:88%;
+				left:64%;
+				clip-path: polygon(20% 63%, 20% 0, 70% 0, 70% 100%, 0 100%, 0 63%);
+				background-image: url("img/200gvard-2.jpg");
+			}*/
+			/*.image-8{
+				top:26%;
+				left:18%;
+				clip-path: polygon(20% 63%, 20% 0, 70% 0, 70% 100%, 0 100%, 0 63%);
+				background-image: url("img/200gvard-1.jpg");
+			}*/
+			/*.image-9{
+				top:76%;
+				left:30%;
+				clip-path: polygon(20% 63%, 20% 0, 70% 0, 70% 100%, 0 100%, 0 63%);
+				background-image: url("img/kant-1.jpg");
+			}*/
+			/*.image-10{
+				top:42%;
+				left:7%;
+				clip-path: polygon(20% 63%, 20% 0, 70% 0, 70% 100%, 0 100%, 0 63%);
+				background-image: url("img/eltsin-1B.jpg");
+			}*/
+
+			/*text styles*/
+			.font-body{
+				text-align:left;
+				font-size: 30px;
+				line-height: 1.4;
+				font-family: 'Helvetica, Arial', sans-serif;
+			}
+			.font-body-small{
+				font-size:12px;
+			}
+			.font-heading{
+				/*font-size:90px;*/
+				font-size:4em;
+				text-transform:uppercase;
+				line-height: 0.8;
+				font-family: 'Igor Rounded', sans-serif;
+			}
+			.text-left-aligned{
+				text-align:left;
+			}
+			.text-blue{
+				color:rgb(51,51,255);
+			}
+			/*button style*/
+			.submit-button {
+				-webkit-appearance: button;
+    			-moz-appearance: button;
+    			appearance: button;
+   				text-decoration: none;
+    			color: initial;
+    			padding:3px 6px 3px 6px;
+			}
+			/*hidden anchor*/
+/*			.anchor {
+				width: 1px;
+				height: 1px;
+				top: 100px;
+				color:red;
+				left: 0;
+			}*/
+		</style>
+		<script>
+			//1) TO DO - on scroll show image
+
+			/*const SELECTOR = '.image-place';
+			const ANIMATE_CLASS_NAME = 'show';
+
+			const animate = element => (
+  				element.classList.add(ANIMATE_CLASS_NAME)
+			);
+
+			const isAnimated = element => (
+  				element.classList.contains(ANIMATE_CLASS_NAME)
+			);
+
+			intersectionObserver = new IntersectionObserver((entry, observer) => {
+				console.log('entry:', entry);
+				console.log('observer:', observer);
+  				entries.forEach((entry) => {
+    				// element is in viewport, do the stuff
+    				if (entry.intersectionRatio > 0) {
+      					animate(entry.target);
+    					observer.unobserve(entry.target);
+  			  		};
+				});
+			});
+			// get your elements
+			const anchor = [document.querySelector('.anchor')];
+
+			// start observing your elements
+			intersectionObserver.observe(anchor);
+			*/
+
+			//2) TO DO: calculate random position of Summer School each time page loads
+			// function randomPosition() {
+			// 	let calculatePosition = Math.floor(Math.random()*100 - width);
+			// 	let randomPosText = document.getElementsbyClassName("subtitle-top");
+
+			// 	let i=0, i<randomPosText.length, i++{
+			// 		forEach randomPosText[i] 
+			// 		calculatePosition()
+			// 	 	randomPostext[i].style.setProperty('--top', "calculatePosition")
+			// 	}
+			// 	console.log(height, width);
+			// }
+
+			// 3) TO DO - AJAX text data from googlesheets table
+
+		</script>
+	</head>
+	<body>
+		<!-- vector lines -->
+		<div class="svg-container">
+				<svg
+				class="lines horizon-line" 
+				width="100% 100%"
+				xmlns="http://www.w3.org/2000/svg">
+	  				<g stroke="rgb(51,51,255)" stroke-width="2">
+	  					<line x1="0" y1="50%" x2="100%" y2="50%"/>
+	  					<line x1="0" y1="100%" x2="40%" y2="50%"/>
+	  					<line x1="60%" y1="50%" x2="100%" y2="100%"/>
+	  				</g>
+	  				<svg
+					width=100%
+					viewBox="0 0 100 100"
+					class="lines horizon-line"
+					preserveAspectRatio="xMidYMid slice"
+	  				>
+	  					<circle vector-effect="non-scaling-stroke" stroke="rgb(51,51,255)" stroke-width="2" cx="50" cy="58" r="6"/>
+	  					<path vector-effect="non-scaling-stroke" stroke="rgb(51,51,255)" stroke-width="2" d="M 50 58 m 0 5 v -7	 l 1 1 m -1 -1 l -1 1"/> 
+	  					<style>
+	  						.N {font: italic 0.2em sans-serif; fill:none; stroke:rgb(51,51,255); stroke-width:2;}
+	  					</style>
+						<text vector-effect="non-scaling-stroke" x="50" y="55.5" text-anchor="middle" class="N">N</text>
+	  				</svg>
+				</svg>
+			</div>
+		<!-- content appearing on top of the page -->
+		<div class="title-container">
+			<p class="font-body font-body-small subtitle-top">Летняя школа</p>
+			<p class="font-body font-body-small subtitle-top-2 text-blue">Летняя школа</p>
+		</div>
+		<div class="image-container">
+			<div class="image-place symbol-1 image-vertical symbol image-blue"></div>
+			<div class="image-place symbol-2 image-vertical symbol image-blue"></div>
+			<div class="image-place symbol-3 image-horizontal symbol image-blue"></div>
+			<div class="image-place symbol-4 image-horizontal symbol image-blue"></div>
+		</div>
+		<!-- main content -->
+		<div class="container">
+			<div class="wrapper-left">
+							<!-- title -->
+				<div class="title-container">
+					<h1 class="title-top font-heading" id="top">
+					Новые<br>горизон<br><span class="text-indent-container"><span class="text-blue text-indent">ты</span></span>
+					</h1>
+					<h1 class="title-date font-heading text-left-aligned" id="date">
+					<span class="text-blue">6—</span><br/>17
+					<span class="text-indent-container"><span class=" text-indent">ИЮЛ</span></span><br/><span class="text-indent-container">
+					</h1>
+				</div>
+				<div class="image-container">
+					<div class="image-place image-1 image-vertical"></div>
+					<!-- <div class="image-place image-2 image-vertical"></div> -->
+					<div class="image-place image-3 image-horizontal"></div>
+					<!-- <div class="image-place image-4 image-vertical"></div>
+					<div class="image-place image-5 image-vertical"></div>
+					<div class="image-place image-6 image-vertical"></div>
+					<div class="image-place image-7 image-vertical"></div>
+					<div class="image-place image-8 image-vertical"></div>
+					<div class="image-place image-9 image-horizontal"></div> -->
+					<!-- <div class="image-place image-10 image-vertical"></div> -->
+				</div>
+			</div>
+			<div class="wrapper-right">
+				<div class="board-wrapper">		
+					<div class="text-full">
+						<p class="font-body">Ты пионер рыбного лова. Ты придорожная липа. Ты брусчатка поросшая мхом. Ты первый секретарь. Ты взгляд американского пилота на руины замка. Ты мозаика на доме в Борисово. Ты танцуешь рэгги на грязном снегу. Ты ночной ныряльщик за янтарем. Ты в сердце Камвала. Ты кинотеатр «Баррикады». Ты разобранный ангар на Балткосе. Ты дизайнер, ты про идентичность. Ты в модных кроссовках попадешь на тусовку. Ты графитти в порту. Ты рабочий стол с фотографией СПИ РВВК. Ты фильм «Жена Керосинщика». Ты двухъярусный мост.						
+						</p>
+						<!-- <span class="anchor"></span> -->
+						<p class="font-body"> В июле 2015 года космическая станция «Новые горизонты» исследует окраины Солнечной системы. Она приближается к Плутону. Площадь Плутона немногим больше площади России, сообщает Википедия. Россия — Плутон? Летняя школа, носящая имя космической станции, в июле 2020 года начинает распределенное исследование другой удаленной территории — Калининграда.
+						</p>
+						<p class="font-body">Первая смена посвящена картографированию пространств. Участники будут прочерчивать траектории, наносить точки, обнаруживать соответствия, вести дневник наблюдений, ориентироваться на местности. Приветствуются близкие взаимодействия и удаленное участие.</p>
+						<p class="font-body">
+							<a href="https://forms.gle/6EGjf8xcruGVDyRU8" class="submit-button">Подать заявку</a>
+						</br></br>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+  	</script>	
+	</body>
+</html>
