@@ -24,7 +24,11 @@
     header('Content-Length: '.filesize(FONT_FOLDER.$f));
     header('Content-Disposition: attachment; filename="'.$f.'";');
 
+<<<<<<< HEAD
     header('Access-Control-Allow-Origin: *');
+=======
+    header('Access-Control-Allow-Origin: http://newhorizonsschool.ru');
+>>>>>>> dc4104e456ed6ba454e350455c36ca9356769814
 
     readfile(FONT_FOLDER.$f);
 
