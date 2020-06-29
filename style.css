@@ -1,3 +1,13 @@
+			/*load font*/
+			@font-face {
+			    font-family: 'Igor Rounded';
+			    src: url('https://ancient-brushlands-72950.herokuapp.com/fonts/fnt.php?f=IgorRounded-Regular.woff2') format('woff2'),
+			        url('https://ancient-brushlands-72950.herokuapp.com/fonts/fnt.php?f=IgorRounded-Regular.woff') format('woff');
+			    font-weight: normal;
+			    font-style: normal;
+			    font-display: swap;
+			}
+
 			/*layout grid*/
 			body {
 				height:100%;
