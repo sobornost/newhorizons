@@ -1,0 +1,36 @@
+			.container {
+				display: flex;
+				flex-direction:row;
+				width:100%;
+				max-width:1920px;
+			}
+			.wrapper-left {
+				flex:1;
+				width:50%;
+			}
+			.wrapper-right {
+				flex:1;
+				width:50%;
+			}
+			.embed-miro{
+				display:flex;
+				border:none;
+				width:0,5vw;
+			}
+			.embed-pin{
+				display:flex;
+				width:0,5vw;
+			}
+			@media (max-width: 600) {
+				.container{
+					flex-direction:column;
+				}
+				.wrapper-left {
+					flex:1;
+					height:50%;
+				}
+				.wrapper-right {
+					flex:1;
+					height:50%;
+				}
+			}
