@@ -18,7 +18,7 @@
 			}
 			.container {
 				display: flex;
-				flex-direction:row;
+				flex-direction:column;
 				flex-wrap:wrap;
 				position: absolute;
 				top: 0;
@@ -58,7 +58,7 @@
 				position:relative;
 				height:100%;
 				overflow-y:auto;
-				margin:25px 50px 25px 40px;
+				margin:1em 1.5em 1em 1.5em;
 			}
 			.text-full{
 				height:100%;
@@ -66,19 +66,25 @@
     			z-index:102;
 			}
 
-			/*responsive layout from horizontal to vertical*/
-			@media (min-width: 0px) 
- 				and (max-width: 800px) {
-					.container{
+			/*responsive layout from vertical to horizontal*/
+			/* portrait-landscape orientation */
+			@media (orientation: portrait) {
+				.container{
+						flex-direction:column;
+				}
+			}
+			@media (orientation: landscape) {
+				.container{
+						flex-direction:row;
+				}
+			}
+
+			/*screen sizes*/
+			@media (max-width:960px) {
+ 					.container{
 						flex-direction:column;
 					}
-					.image-container{
-						width:100%;
-						display:grid;
-						grid-template-columns: 1fr 1fr;
-						grid-template-rows: 1fr 1fr 1fr;
-					}
-			}
+ 				}
 
 			/*header*/
 			.title-top{
@@ -122,7 +128,7 @@
 
 			.subtitle-top-2 {
 				position: absolute;
-				top:49vh;
+				top:50vh;
 				right:65%;
   				text-align:center;
 			}
@@ -288,16 +294,16 @@
 			/*text styles*/
 			.font-body{
 				text-align:left;
-				font-size: 30px;
+				font-size: 4.5vh;
 				line-height: 1.4;
 				font-family: 'Helvetica, Arial', sans-serif;
 			}
 			.font-body-small{
-				font-size:12px;
+				font-size: 2.5vh;
 			}
 			.font-heading{
 				/*font-size:90px;*/
-				font-size:4em;
+				font-size:11vh;
 				text-transform:uppercase;
 				line-height: 0.8;
 				font-family: 'Igor Rounded', sans-serif;
