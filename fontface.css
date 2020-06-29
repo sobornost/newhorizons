@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Igor Rounded';
+    src: url('IgorRounded-Regular.woff2') format('woff2'),
+        url('IgorRounded-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
