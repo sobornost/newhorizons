@@ -84,6 +84,9 @@
  					.container{
 						flex-direction:column;
 					}
+					.font-body-small{
+						font-size: 1.5vh;
+					}
  				}
 
 			/*header*/
@@ -178,13 +181,17 @@
 				z-index:101;
 			}
 			.image-vertical{
-				width:150px;
-				height:260px;
+				width:25vh;
+				height:45vh;
+				min-height: 260px;
+				max-height: 500px;
 			}
 
 			.image-horizontal{
-				width:260px;
-				height:150px;
+				width:45vh;
+				height:25vh;
+				min-width: 260px;
+				max-width: 500px;
 			}
 			
 			/*image styling*/
@@ -294,16 +301,16 @@
 			/*text styles*/
 			.font-body{
 				text-align:left;
-				font-size: 4.5vh;
+				font-size: 4vh;
 				line-height: 1.4;
 				font-family: 'Helvetica, Arial', sans-serif;
 			}
 			.font-body-small{
-				font-size: 2.5vh;
+				font-size: 0.9em;
 			}
 			.font-heading{
 				/*font-size:90px;*/
-				font-size:11vh;
+				font-size:calc(3.5em + 2vh);
 				text-transform:uppercase;
 				line-height: 0.8;
 				font-family: 'Igor Rounded', sans-serif;
