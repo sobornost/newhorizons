@@ -158,9 +158,9 @@
   				padding-bottom: 66.66%; /* 16:9 */
   				position:inherit;
   				left:0;
-  				top:0;
+  				top:0;/*
   				transform-origin: 0 0;
-  				transform: translate(-50vw, -50vh);
+  				transform: translate(0, 0);*/
 			}	
 			.image-place{
 				position:absolute;
@@ -171,7 +171,7 @@
 				height:100%;
 				background-size: cover;
 				background-position: center;
-				transform: scale(0.4);
+				transform: scale(0.3);
 			}
 			.symbol{
 				background-size: 25%;
@@ -228,23 +228,25 @@
 			}
 			.symbol-3{
 				top:15vh;
-				left: 40vw;
+				left:40vw;
 				background-image: url("../newhorizons/img/map/10pustyr.png");
 			}
 			.symbol-4{
-				top:-5vh;
-				left:40%;
+				top:5vh;
+				left:0;
 				background-image: url("../newhorizons/img/map/11ferry.png");
 			}
 			.image-1{
-				top:40vh;
-				left:-15vw;
+				top:20vh;
+				left:-5vw;
 				clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 99%, 0% 66%, 24% 66%, 23% 35%, 49% 35%);
 				background-image: url("../newhorizons/img/eltsin-1B.jpg");
 			}
 			.image-3{
-				top:-4vh;
-				left:10vh;
+				top:-50%;
+				bottom:auto;
+				left:50vw;
+				transform-origin: top left;
 				clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 67% 41%, 67% 99%, 0 100%);
 				background-image: url("../newhorizons/img/office.jpg");
 			}
@@ -357,25 +359,38 @@
 						flex-direction:row;
 					}
 				.symbol-1{
-					top:35vh;
-					left:-30vw;
+					top:-2vh;
+					left:-40vw;
 					background-image: url("../newhorizons/img/map/03kirha2.png");
 				}
 				.symbol-2{
 					top:auto;
-					bottom:-5vh;
+					bottom:-30vh;
 					margin:auto;
 					background-image: url("../newhorizons/img/map/07pine.png");
 				}
 				.symbol-3{
-					top:15vh;
+					top: 15vh;
 					left: 40vw;
 					background-image: url("../newhorizons/img/map/10pustyr.png");
 				}
 				.symbol-4{
-					top:-5vh;
-					left:40%;
+					top:-30vh;
+					left:0;
 					background-image: url("../newhorizons/img/map/11ferry.png");
+				}
+				.image-1{
+					top:0vh;
+					left:-5vw;
+					clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 99%, 0% 66%, 24% 66%, 23% 35%, 49% 35%);
+					background-image: url("../newhorizons/img/eltsin-1B.jpg");
+				}
+				.image-3{
+					top:auto;
+					left:25vw;
+					bottom:188vh;
+					clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 67% 41%, 67% 99%, 0 100%);
+					background-image: url("../newhorizons/img/office.jpg");
 				}
 			}
 
