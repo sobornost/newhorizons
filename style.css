@@ -11,10 +11,13 @@
 			/*layout grid*/
 			body {
 				height:100%;
-				width:100%;
+				width:100vw;
 				margin:0;
 				padding:0;
 				overflow:hidden;
+			}
+			html, body {
+			    overflow-x: hidden;
 			}
 			.container {
 				display: flex;
@@ -46,13 +49,16 @@
 			}
 			.image-container{
 				position:relative;
-				width:100%;
+				width:100vw;
 				height:100vh;
-				max-height:100vh;
+				top:0;
+				left:0;
+				/*max-height:100vh;*/
 /*				display:grid;
 				grid-template-columns: 1fr 1fr 1fr;
 				grid-template-rows: 1fr 1fr 1fr 1fr;*/
 			}
+
 			.board-wrapper{
 				margin:auto;
 				position:relative;
@@ -66,28 +72,6 @@
     			z-index:102;
 			}
 
-			/*responsive layout from vertical to horizontal*/
-			/* portrait-landscape orientation */
-			@media (orientation: portrait) {
-				.container{
-						flex-direction:column;
-				}
-			}
-			@media (orientation: landscape) {
-				.container{
-						flex-direction:row;
-				}
-			}
-
-			/*screen sizes*/
-			@media (max-width:960px) {
- 					.container{
-						flex-direction:column;
-					}
-					.font-body-small{
-						font-size: 1.5vh;
-					}
- 				}
 
 			/*header*/
 			.title-top{
@@ -169,27 +153,39 @@
 			}
 
 			/*placed images*/
+			.image-wrapper{
+				height: 0;
+  				padding-bottom: 66.66%; /* 16:9 */
+  				position:inherit;
+  				left:0;
+  				top:0;
+  				transform-origin: 0 0;
+  				transform: translate(0, -66.66%	);
+			}	
 			.image-place{
 				position:absolute;
 				top:0;
 				left:0;
+				width:100%;
+				height:100%;
 				background-size: cover;
+				transform: scale(0.4);
 			}
 			.symbol{
-				background-size: 50%;
+				background-size: 25%;
 				background-repeat:no-repeat;
 				z-index:101;
 			}
 			.image-vertical{
-				width:25vh;
-				height:45vh;
+				/*width:25vh;
+				height:45vh;*/
 				min-height: 260px;
 				max-height: 500px;
 			}
 
 			.image-horizontal{
-				width:45vh;
-				height:25vh;
+				/*width:45vh;
+				height:25vh;*/
 				min-width: 260px;
 				max-width: 500px;
 			}
@@ -238,8 +234,8 @@
 				background-image: url("../newhorizons/img/map/11ferry.png");
 			}
 			.image-1{
-				top:55%;
-				left:18%;
+				top:0;
+				left:0;
 				clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 99%, 0% 66%, 24% 66%, 23% 35%, 49% 35%);
 				background-image: url("../newhorizons/img/eltsin-1B.jpg");
 			}
@@ -250,9 +246,8 @@
 				background-image: url("img/kant2.jpg");
 			}*/
 			.image-3{
-				top:5em;
-				left:auto;
-				right:-5%;
+				top:0;
+				left:0;
 				clip-path: polygon(0% 0%, 100% 0%, 100% 62%, 67% 41%, 67% 99%, 0 100%);
 				background-image: url("../newhorizons/img/office.jpg");
 			}
@@ -338,3 +333,31 @@
 				color:red;
 				left: 0;
 			}*/
+
+			/*responsive layout from vertical to horizontal*/
+			/* portrait-landscape orientation */
+			@media (orientation: portrait) {
+				.container{
+						flex-direction:column;
+				}
+				/*tweak text and image sizes*/
+				.font-body-small{
+					font-size: 1.5vh;
+				}
+				.image-place{
+					transform: scale(0.7);
+				}
+			}
+			@media (orientation: landscape) {
+				.container{
+						flex-direction:row;
+				}
+			}
+
+			/*screen sizes*/
+			@media screen and 
+			(min-width:0px) and (max-width:960px) {
+ 					.container{
+						flex-direction:column;
+					}
+ 				}
